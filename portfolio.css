@@ -5,6 +5,29 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
+:root {
+  --navy:       #0d1b2e;
+  --navy-mid:   #152540;
+  --navy-light: #1e3a5f;
+  --teal:       #5ddbb4;
+  --teal-dim:   #3aaf8a;
+  --teal-glow:  rgba(93, 219, 180, 0.15);
+  --ice:        #eaf4fb;
+  --ice-mid:    #d4eaf7;
+  --white:      #ffffff;
+  --text-light: #a8c6e0;
+  --text-muted: #5f829e;
+  --border:     rgba(93, 219, 180, 0.2);
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-xl:  32px;
+  --transition: 0.3s ease;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
 i .fab {
   margin-left: 8px;
 }
@@ -23,41 +46,85 @@ i.fa-envelope {
 
 /* BODY */
 body {
-  background-color: #f5f7fa;
-  color: #333;
-  line-height: 1.6;
+font-family: 'Poppins', sans-serif;
+  background-color: var(--navy);
+  color: var(--white);
+  min-height: 100vh;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+img {
+  max-width: 100%;
+  display: block;
+}
 /* NAVBAR */
 header {
-  background: #0a192f;
-  padding: 15px 60px;
+  background: rgba(13, 27, 46, 0.95);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 nav h1 {
-  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.4rem;
+  color: var(--teal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-
+ 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
-}
+  gap: 2rem;
 
-nav a {
-  color: #ccd6f6;
-  text-decoration: none;
-  transition: 0.3s;
 }
-
-nav a:hover {
-  color: dodgerblue;
+ 
+nav ul li a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-light);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+  cursor: pointer;
+}
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: width var(--transition);
+}
+ 
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--teal);
+}
+ 
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
 }
 
 /* SECTIONS */
@@ -86,14 +153,22 @@ section {
   width: 300px;
   border-radius: 20px;
 } 
-
+.hero a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--navy-mid);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px;
+}
 
 /* BUTTONS */
 a, button {
   display: inline-block;
   margin: 10px 10px 0 0;
   padding: 10px 20px;
-  background: #0a192f;
+  background: var(--navy-mid);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -103,12 +178,14 @@ a, button {
 }
 
 a:hover, button:hover {
-  color: dodgerblue;
+  color: var(--teal-dim);
 }
-
+.view {
+  background: var(--navy);
+}
 /* CARDS */
 .card {
-  background: #fff;
+  background: var(--navy-mid);
   padding: 20px;
   border-radius: 12px;
   margin-top: 20px;
@@ -162,7 +239,7 @@ a:hover, button:hover {
   transition: 0.3s;
 }
 .desc-card {
-  background: #fff;
+  background: var(--navy-mid);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -172,6 +249,41 @@ a:hover, button:hover {
   text-align: center;
 }
 /* FORM */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+.contact {
+  background: var(--navy);
+   position: relative;
+}
+.contact::after, .contact::before {
+  content: "";
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from var(--angle),transparent 50%, var(--teal));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10px;
+    padding: 4px;
+    animation: spin 3s linear infinite;
+}
+.contact::before {
+   content: "";
+    filter: blur(50px);
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
 form {
   max-width: 500px;
   margin: 20px auto;
@@ -190,7 +302,7 @@ input, textarea {
 footer {
   text-align: center;
   padding: 45px;
-  background: #0a192f;
+  background: var(--navy-mid);
   color: #fff;
   margin-top: 40px;
 }
@@ -234,13 +346,22 @@ footer {
   .about img {
     width: 100px;
   }
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
+ header {
+  display: flex;
+  flex-direction: column;
+
+ }
+ nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+ }
+ nav {
+  flex-direction: column;
+  margin-bottom: 100px;
+ }
  .hero-image img {
     max-width: 150px;
-    transform: translate(-3%, 30%);
+    transform: translate(50%, 30%);
     height: auto;
     margin-top: 10px;
   }
