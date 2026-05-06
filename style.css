@@ -1,0 +1,54 @@
+html {
+    font-size: large; /* Base font size */
+}
+.container {
+    max-width: 1500px;  /* Fluid container  */
+    min-width: 500px;  /* Fluid container  */
+    height: 700px;
+    font-size: 1rem; /* Responsive unit */
+    background: crimson;
+}
+nav ul {
+    display: flex; /* Flexible navigation */
+    list-style: none;
+    gap: 20px;
+}
+ul li a {
+    text-decoration: none;
+    color: rgb(255, 0, 0);
+    font-size: 5rem; /* Responsive unit */
+}
+img {
+    width: 100%;  /* Flexible image */
+    height: auto; /* Flexible image */
+}
+/* Breakpoints */
+@media (max-width: 1000px) {
+    .container {
+        background: aqua; /* Responsive unit */
+    }
+} 
+@media (max-width: 600px) {
+    .container {
+        background: yellow; /* Responsive unit */
+    }
+    img {
+        width: 50%;  /* Responsive unit */
+    }
+}
+@media (max-width: 400px) {
+    img {
+      display: none;   /* Responsive unit */
+    }
+    nav ul {
+        flex-direction: column; /* Responsive unit */
+    }
+}
+ 
+/* INGREDIENTS TO CREATE A RESPONSIVE DESIGN */
+/* 1. Fluid containers */
+/* 2. Responsive units */
+/* 3. Flexible images */
+/* 4. Media queries */
+
+/* Desktop first, Mobile first */
