@@ -1,27 +1,105 @@
-<!DOCTYPE html>
+<!-- Requirements:
+ 1. The website should have 4 pages(Home page, about page, skills page, contact page)
+ 2. All the pages should have the same header and footer 
+ 3. The page should be responsive
+ 4. Create the styles using external CSS file.
+ ⚠️: The project should be ready in 2 hours and you're not allowed to use AI.-->
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML & CSS</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presley | Portfolio</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Services</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <h1>Responsive Design</h1> 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+
+<header>
+  <nav>
+    <h1>Presley</h1>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a onclick="window.location.href = 'personal-portfolio.html#skills'">Skills</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+  <h2>Aspiring Web Developer</h2>
+  <p>Hello! I'm Presley, a passionate beginner web developer based in Rwanda, learning how to build modern and responsive websites.</p>
+  <a href="projects.html">View Projects</a>
+  <a href="contact.html">Contact Me</a>
     </div>
-    <img src="./kristaps-ungurs-mwaQp_50kz8-unsplash.jpg" alt="">
-   
+  <div class="hero-image">
+  <img src="./ChatGPT Image Apr 27, 2026, 02_35_30 PM.png" alt="Individual-pic">
+  </div>
+</section>
+
+<section class="featured">
+  <h2>Featured Project</h2>
+  <h3>BluWave</h3>
+  <p>A platform concept focused on digital solutions and user-centered interfaces.</p>
+  <a href="bluwave.html">View Case Study</a>
+</section>
+
+<section class="skills" id="skills">
+  <h2>Skills</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>HTML</h3>
+      <p>
+        Building well-structured and semantic web pages with clean and accessible markup.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>CSS</h3>
+      <p>
+        Designing responsive layouts using Flexbox and Grid, with focus on clean UI and user experience.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>JavaScript</h3>
+      <p>
+        Creating interactive features, handling user input, and manipulating the DOM for dynamic web applications.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Problem Solving</h3>
+      <p>
+        Breaking down problems and building practical solutions through real-world projects.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-preview">
+  <h2>Want to work with me?</h2>
+  <p>I’m open to learning opportunities and collaborations.</p>
+  <a href="contact.html">Send a Message</a>
+</section>
+
+<footer>
+  <div class="socials">
+    <h2>Socials</h2>
+    <a href="https://github.com/Pres-010" rel="noopener" target="_blank">GitHub <i class="fab fa-github"></i></a>
+    <a rel="noopener" href="https://instagram.com/nshutipresley" target="_blank">Instagram <i class="fab fa-instagram"></i></a>
+    <a rel="noopener" href="https://youtube.com/@NshutiPresley" target="_blank">YouTube <i class="fab fa-youtube"></i></a>
+    <a href="mailto:presleymukunzishuti@email.com">Email <i class="far fa-envelope"></i></a>
+  </div>
+   <p>© 2026 Presley &mdash; All rights reserved.</p>
+</footer>
+
 </body>
 </html>
