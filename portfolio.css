@@ -208,15 +208,25 @@ a:hover, button:hover {
 
 .skill-level {
   height: 100%;
-  background: var(--accent);
+  background: var(--teal);
   border-radius: 5px;
+  animation: grow 1.5s ease-in-out;
 }
 
-/* Skill Levels */
-.skill-level.html { width: 80%; }
-.skill-level.css { width: 70%; }
+.skill-level.html { width: 85%; }
+.skill-level.css { width: 75%; }
 .skill-level.js { width: 60%; }
-.skill-level.problem { width: 75%; }
+.skill-level.problem { width: 80%; }
+
+/* Smooth animation */
+@keyframes grow {
+  from {
+    width: 0;
+  }
+}
+.card:hover .skill-level {
+  box-shadow: 0 0 10px var(--teal);
+}
 /* GRID */
 .grid {
   display: grid;
