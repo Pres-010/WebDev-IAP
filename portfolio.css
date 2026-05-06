@@ -390,7 +390,7 @@ footer {
  }
  .hero-image img {
     max-width: 150px;
-    transform: translate(-3%, 30%);
+    transform: translate(30%, 30%);
     height: auto;
     margin-top: 10px;
   }
