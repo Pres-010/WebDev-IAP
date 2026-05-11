@@ -140,6 +140,7 @@ section {
   padding: 80px 40px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
 }
 
 
