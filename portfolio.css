@@ -38,7 +38,7 @@ i.fa-instagram {
   color: #e4405f;
 }
 i.fa-github {
-  color: #9a9898;
+  color: #b2afafff;
 }
 i.fa-envelope {
   color: #0072c6;
@@ -103,6 +103,7 @@ nav ul li a {
   position: relative;
   padding-bottom: 4px;
   transition: color var(--transition);
+  background: none;
   cursor: pointer;
 }
 nav ul li a::after {
@@ -116,7 +117,7 @@ nav ul li a::after {
   border-radius: 2px;
   transition: width var(--transition);
 }
- 
+
 nav ul li a:hover,
 nav ul li a.active {
   color: var(--teal);
@@ -140,6 +141,7 @@ section {
   padding: 80px 40px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
 }
 
 
@@ -162,7 +164,16 @@ section {
   text-decoration: none;
   margin: 5px;
 }
-
+#view {
+  background: var(--teal);
+  border-radius: 30px;
+  border: 1px solid var(--navy);
+  color: var(--navy-light);
+}
+#contact {
+  border: 2px solid var(--teal);
+  border-radius: 30px;
+}
 /* BUTTONS */
 a, button {
   display: inline-block;
@@ -197,36 +208,7 @@ a:hover, button:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-.skill-bar {
-  width: 100%;
-  height: 8px;
-  background: #ddd;
-  border-radius: 5px;
-  margin-top: 10px;
-  overflow: hidden;
-}
 
-.skill-level {
-  height: 100%;
-  background: var(--teal);
-  border-radius: 5px;
-  animation: grow 1.5s ease-in-out;
-}
-
-.skill-level.html { width: 85%; }
-.skill-level.css { width: 75%; }
-.skill-level.js { width: 60%; }
-.skill-level.problem { width: 80%; }
-
-/* Smooth animation */
-@keyframes grow {
-  from {
-    width: 0;
-  }
-}
-.card:hover .skill-level {
-  box-shadow: 0 0 10px var(--teal);
-}
 /* GRID */
 .grid {
   display: grid;
@@ -390,7 +372,7 @@ footer {
  }
  .hero-image img {
     max-width: 150px;
-    transform: translate(30%, 30%);
+    transform: translate(50%, 30%);
     height: auto;
     margin-top: 10px;
   }
