@@ -43,7 +43,9 @@ i.fa-github {
 i.fa-envelope {
   color: #0072c6;
 }
-
+i.fa-bars {
+  display: none;
+}
 /* BODY */
 body {
 font-family: 'Poppins', sans-serif;
@@ -51,7 +53,6 @@ font-family: 'Poppins', sans-serif;
   color: var(--white);
   min-height: 100vh;
   line-height: 1.7;
-  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -190,6 +191,7 @@ a, button {
 
 a:hover, button:hover {
   color: var(--teal-dim);
+  box-shadow: 0px 0px 20px var(--teal);
 }
 .view {
   background: var(--navy);
@@ -206,7 +208,7 @@ a:hover, button:hover {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(26, 188, 161, 0.2);
 }
 
 /* GRID */
@@ -317,6 +319,7 @@ footer {
   color: #fff;
   margin-top: 40px;
 }
+/* Responsive */
 @media (max-width: 1300px) {
   .hero {
     text-align: center;
@@ -362,13 +365,21 @@ footer {
   flex-direction: column;
 
  }
- nav ul {
+ nav .shown {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
- }
+ } 
  nav {
   flex-direction: column;
   margin-bottom: 100px;
+ }
+ nav>i.fa-bars {
+  position: absolute;
+  top: 7%;
+  left: 10%;
+ }
+ .menu-links {
+  display: none;
  }
  .hero-image img {
     max-width: 150px;
@@ -376,4 +387,8 @@ footer {
     height: auto;
     margin-top: 10px;
   }
+  i.fa-bars {
+    display: block;
+    color: #5ddbb4;
+  } 
 }
