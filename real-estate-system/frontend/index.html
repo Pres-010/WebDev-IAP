@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real Estate Listings</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏠 Property Listings</h1>
+  <h2>Add New Property</h2>
+
+<form id="propertyForm">
+  <input type="text" id="title" placeholder="Title" required />
+  <input type="text" id="type" placeholder="Type (house/land/apartment)" required />
+  <input type="text" id="purpose" placeholder="Purpose (rent/sale)" required />
+  <input type="number" id="price" placeholder="Price" required />
+  <input type="text" id="location" placeholder="Location" required />
+  <textarea id="description" placeholder="Description"></textarea>
+  <button type="submit">Add Property</button>
+</form>
+  <div id="listings"></div>
+
+  <script>
+    fetch("http://localhost:3000/properties")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("listings");
+
+        data.forEach(property => {
+          const div = document.createElement("div");
+          div.className = "card";
+
+          div.innerHTML = `
+            <h3>${property.title}</h3>
+            <p><b>Price:</b> ${property.price} RWF</p>
+            <p><b>Location:</b> ${property.location}</p>
+            <p><b>Type:</b> ${property.type}</p>
+            <p><b>Status:</b> ${property.status}</p>
+          `;
+
+          container.appendChild(div);
+        });
+      });
+  </script>
+<script>
+document.getElementById("propertyForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    title: document.getElementById("title").value,
+    type: document.getElementById("type").value,
+    purpose: document.getElementById("purpose").value,
+    price: document.getElementById("price").value,
+    location: document.getElementById("location").value,
+    description: document.getElementById("description").value,
+    broker_id: 1
+  };
+
+  const res = await fetch("http://localhost:3000/properties", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  console.log(result);
+
+  alert("Property added successfully 🚀");
+
+  location.reload(); // refresh to show new property
+  console.log("Sending request...");
+});
+</script>
+</body>
+</html>

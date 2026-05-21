@@ -12,11 +12,13 @@
 <header>
   <nav>
     <h1>Presley</h1>
-    <ul>
+    <i class="menu fa-solid fa-bars"></i>
+    <ul class="menu-links">
       <li><a href="personal-portfolio.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a onclick="window.location.href = 'personal-portfolio.html#skills'">Skills</a></li>
     </ul>
   </nav>
 </header>
@@ -29,13 +31,13 @@
   <div class="card">
     <h2>BluWave</h2>
     <p>A platform exploring digital solutions and user-focused interfaces.</p>
-    <a href="bluwave.html">View Details</a>
+    <a href="bluwave.html" class="view">View Details</a>
   </div>
 
   <div class="card">
   <h2>Task Management App</h2>
   <p>A simple and interactive app for managing daily tasks efficiently.</p>
-  <a href="task-app.html">View Details</a>
+  <a href="task-app.html" class="view">View Details</a>
 </div>
 
   <div class="card">
@@ -57,6 +59,6 @@
   </div>
   <p>© 2026 Presley | All rights reserved.</p>
 </footer>
-
+<script src="./portfolio.js"></script>
 </body>
 </html>
