@@ -28,6 +28,29 @@ html {
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
 }
+:root {
+  --navy:       #0d1b2e;
+  --navy-mid:   #152540;
+  --navy-light: #1e3a5f;
+  --teal:       #5ddbb4;
+  --teal-dim:   #3aaf8a;
+  --teal-glow:  rgba(93, 219, 180, 0.15);
+  --ice:        #eaf4fb;
+  --ice-mid:    #d4eaf7;
+  --white:      #ffffff;
+  --text-light: #a8c6e0;
+  --text-muted: #5f829e;
+  --border:     rgba(93, 219, 180, 0.2);
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-xl:  32px;
+  --transition: 0.3s ease;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
 i .fab {
   margin-left: 8px;
 }
@@ -39,9 +62,13 @@ i.fa-instagram {
 }
 i.fa-github {
   color: #b2afafff;
+  color: #b2afafff;
 }
 i.fa-envelope {
   color: #0072c6;
+}
+i.fa-bars {
+  display: none;
 }
 i.fa-bars {
   display: none;
@@ -57,6 +84,20 @@ font-family: 'Poppins', sans-serif;
 a {
   text-decoration: none;
   color: inherit;
+font-family: 'Poppins', sans-serif;
+  background-color: var(--navy);
+  color: var(--white);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+img {
+  max-width: 100%;
+  display: block;
 }
  
 img {
@@ -70,6 +111,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  background: rgba(13, 27, 46, 0.95);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
@@ -77,7 +123,12 @@ nav {
   margin: 0 auto;
   padding: 0 2rem;
   height: 68px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 68px;
   display: flex;
+  align-items: center;
   align-items: center;
   justify-content: space-between;
 }
@@ -88,11 +139,41 @@ nav h1 {
   color: var(--teal);
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.4rem;
+  color: var(--teal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
+ 
  
 nav ul {
   list-style: none;
   display: flex;
+  gap: 2rem;
+
+}
+ 
+nav ul li a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-light);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+  background: none;
+  cursor: pointer;
+}
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: width var(--transition);
   gap: 2rem;
 
 }
@@ -127,6 +208,14 @@ nav ul li a.active {
 nav ul li a:hover::after,
 nav ul li a.active::after {
   width: 100%;
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--teal);
+}
+ 
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
 }
 
 /* SECTIONS */
@@ -142,6 +231,7 @@ section {
   padding: 80px 40px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
   gap: 100px;
 }
 
@@ -175,11 +265,31 @@ section {
   border: 2px solid var(--teal);
   border-radius: 30px;
 }
+.hero a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--navy-mid);
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px;
+}
+#view {
+  background: var(--teal);
+  border-radius: 30px;
+  border: 1px solid var(--navy);
+  color: var(--navy-light);
+}
+#contact {
+  border: 2px solid var(--teal);
+  border-radius: 30px;
+}
 /* BUTTONS */
 a, button {
   display: inline-block;
   margin: 10px 10px 0 0;
   padding: 10px 20px;
+  background: var(--navy-mid);
   background: var(--navy-mid);
   color: #fff;
   border: none;
@@ -192,12 +302,18 @@ a, button {
 a:hover, button:hover {
   color: var(--teal-dim);
   box-shadow: 0px 0px 20px var(--teal);
+  color: var(--teal-dim);
+  box-shadow: 0px 0px 20px var(--teal);
+}
+.view {
+  background: var(--navy);
 }
 .view {
   background: var(--navy);
 }
 /* CARDS */
 .card {
+  background: var(--navy-mid);
   background: var(--navy-mid);
   padding: 20px;
   border-radius: 12px;
@@ -208,6 +324,7 @@ a:hover, button:hover {
 
 .card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(26, 188, 161, 0.2);
   box-shadow: 0 10px 25px rgba(26, 188, 161, 0.2);
 }
 
@@ -253,6 +370,7 @@ a:hover, button:hover {
 }
 .desc-card {
   background: var(--navy-mid);
+  background: var(--navy-mid);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -262,6 +380,41 @@ a:hover, button:hover {
   text-align: center;
 }
 /* FORM */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+.contact {
+  background: var(--navy);
+   position: relative;
+}
+.contact::after, .contact::before {
+  content: "";
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from var(--angle),transparent 50%, var(--teal));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10px;
+    padding: 4px;
+    animation: spin 3s linear infinite;
+}
+.contact::before {
+   content: "";
+    filter: blur(50px);
+}
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
 @property --angle {
     syntax: '<angle>';
     initial-value: 0deg;
@@ -316,9 +469,11 @@ footer {
   text-align: center;
   padding: 45px;
   background: var(--navy-mid);
+  background: var(--navy-mid);
   color: #fff;
   margin-top: 40px;
 }
+/* Responsive */
 /* Responsive */
 @media (max-width: 1300px) {
   .hero {
@@ -381,11 +536,38 @@ footer {
  .menu-links {
   display: none;
  }
+ header {
+  display: flex;
+  flex-direction: column;
+
+ }
+ nav .shown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+ } 
+ nav {
+  flex-direction: column;
+  margin-bottom: 100px;
+ }
+ nav>i.fa-bars {
+  position: absolute;
+  top: 7%;
+  left: 10%;
+ }
+ .menu-links {
+  display: none;
+ }
  .hero-image img {
     max-width: 150px;
     transform: translate(50%, 30%);
+    transform: translate(50%, 30%);
     height: auto;
     margin-top: 10px;
+  }
+  i.fa-bars {
+    display: block;
+    color: #5ddbb4;
+  } 
   }
   i.fa-bars {
     display: block;
